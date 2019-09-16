@@ -1,5 +1,5 @@
 Analysis & Synthesis report for ALU
-Mon Sep 16 10:58:32 2019
+Mon Sep 16 14:50:42 2019
 Quartus II 64-Bit Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Full Version
 
 
@@ -42,7 +42,7 @@ applicable agreement for further details.
 +------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                       ;
 +------------------------------------+-----------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Sep 16 10:58:32 2019         ;
+; Analysis & Synthesis Status        ; Successful - Mon Sep 16 14:50:42 2019         ;
 ; Quartus II 64-Bit Version          ; 9.1 Build 350 03/24/2010 SP 2 SJ Full Version ;
 ; Revision Name                      ; ALU                                           ;
 ; Top-level Entity Name              ; ALU                                           ;
@@ -270,7 +270,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Full Version
-    Info: Processing started: Mon Sep 16 10:58:31 2019
+    Info: Processing started: Mon Sep 16 14:50:41 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off ALU -c ALU
 Info: Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info: Found 1 design units, including 1 entities, in source file alu.bdf
@@ -310,8 +310,8 @@ Info: Implemented 47 device resources after synthesis - the final resource count
     Info: Implemented 31 logic cells
 Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 0 warnings
     Info: Peak virtual memory: 4431 megabytes
-    Info: Processing ended: Mon Sep 16 10:58:32 2019
+    Info: Processing ended: Mon Sep 16 14:50:42 2019
     Info: Elapsed time: 00:00:01
-    Info: Total CPU time (on all processors): 00:00:01
+    Info: Total CPU time (on all processors): 00:00:02
 
 

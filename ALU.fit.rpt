@@ -1,5 +1,5 @@
 Fitter report for ALU
-Mon Sep 16 10:58:36 2019
+Mon Sep 16 14:50:58 2019
 Quartus II 64-Bit Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Full Version
 
 
@@ -64,7 +64,7 @@ applicable agreement for further details.
 +------------------------------------------------------------------------------------+
 ; Fitter Summary                                                                     ;
 +------------------------------------+-----------------------------------------------+
-; Fitter Status                      ; Successful - Mon Sep 16 10:58:36 2019         ;
+; Fitter Status                      ; Successful - Mon Sep 16 14:50:58 2019         ;
 ; Quartus II 64-Bit Version          ; 9.1 Build 350 03/24/2010 SP 2 SJ Full Version ;
 ; Revision Name                      ; ALU                                           ;
 ; Top-level Entity Name              ; ALU                                           ;
@@ -152,12 +152,12 @@ applicable agreement for further details.
 ; Number detected on machine ; 4           ;
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
-; Average used               ; 3.00        ;
+; Average used               ; 1.00        ;
 ; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     1 processor            ; 100.0%      ;
-;     2-4 processors         ;  33.3%      ;
+;     2-4 processors         ; < 0.1%      ;
 +----------------------------+-------------+
 
 
@@ -1088,7 +1088,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Fitter
     Info: Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Full Version
-    Info: Processing started: Mon Sep 16 10:58:33 2019
+    Info: Processing started: Mon Sep 16 14:50:54 2019
 Info: Command: quartus_fit --read_settings_files=off --write_settings_files=off ALU -c ALU
 Info: Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info: Selected device EP4CE22F17C8 for design "ALU"
@@ -1137,8 +1137,8 @@ Warning: Timing characteristics of device EP4CE22F17C8 are preliminary
 Info: Delay annotation completed successfully
 Info: Generated suppressed messages file H:/EDA/project/ALU/ALU.fit.smsg
 Info: Quartus II 64-Bit Fitter was successful. 0 errors, 4 warnings
-    Info: Peak virtual memory: 4604 megabytes
-    Info: Processing ended: Mon Sep 16 10:58:37 2019
+    Info: Peak virtual memory: 4615 megabytes
+    Info: Processing ended: Mon Sep 16 14:50:58 2019
     Info: Elapsed time: 00:00:04
     Info: Total CPU time (on all processors): 00:00:05
 
