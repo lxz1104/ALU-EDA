@@ -1,6 +1,7 @@
 # 编译生成的中间文件
 *.eqn
 db/
+incremental_db/
 
 # 编译结束后生成的报告文件
 *.rpt
