@@ -1,0 +1,35 @@
+Quartus II Archive log --	H:/EDA/project/ALU/archive/ALU.qarlog
+
+Archive:	H:/EDA/project/ALU/archive/ALU.qar
+Date:		Mon Sep 16 19:09:13 2019
+Quartus II 64-Bit		9.1 Build 350 03/24/2010 SP 2 SJ Full Version
+
+	=========== Files Selected: ===========
+H:/EDA/project/ALU/ALU.bdf
+H:/EDA/project/ALU/ALU.dpf
+H:/EDA/project/ALU/ALU.qpf
+H:/EDA/project/ALU/ALU.qsf
+H:/EDA/project/ALU/ALU.sdc
+H:/EDA/project/ALU/ALU.vwf
+H:/EDA/project/ALU/Block1-1.vwf
+H:/EDA/project/ALU/Block1-2.vwf
+H:/EDA/project/ALU/Block1.bdf
+H:/EDA/project/ALU/Block2-1.vwf
+H:/EDA/project/ALU/Block2-2.vwf
+H:/EDA/project/ALU/Block2.bdf
+H:/EDA/project/ALU/Block3-1.vwf
+H:/EDA/project/ALU/Block3.bdf
+H:/EDA/project/ALU/Block4-1.vwf
+H:/EDA/project/ALU/Block4-2.vwf
+H:/EDA/project/ALU/Block4.bdf
+H:/EDA/project/ALU/Block5-1.vwf
+H:/EDA/project/ALU/Block5-2.vwf
+H:/EDA/project/ALU/Block5.bdf
+H:/EDA/project/ALU/Block6.bdf
+H:/EDA/project/ALU/db/ALU.sim.cvwf
+H:/EDA/project/ALU/signalprobe_qsf.tcl
+h:/eda/quartus/bin64/assignment_defaults.qdf
+	======= Total: 24 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.
