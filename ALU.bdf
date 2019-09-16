@@ -198,7 +198,7 @@ applicable agreement for further details.
 )
 (pin
 	(output)
-	(rect 1312 80 1488 96)
+	(rect 1312 72 1488 88)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
 	(text "CO" (rect 90 0 106 12)(font "Arial" ))
 	(pt 0 8)
@@ -737,7 +737,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 1168 64 1232 112)
+	(rect 1168 56 1232 104)
 	(text "OR2" (rect 1 0 19 10)(font "Arial" (font_size 6)))
 	(text "inst7" (rect 3 37 26 49)(font "Arial" ))
 	(port
@@ -1110,22 +1110,6 @@ applicable agreement for further details.
 	(pt 560 56)
 )
 (connector
-	(pt 472 168)
-	(pt 584 168)
-)
-(connector
-	(pt 584 168)
-	(pt 584 80)
-)
-(connector
-	(pt 936 96)
-	(pt 1168 96)
-)
-(connector
-	(pt 584 80)
-	(pt 1168 80)
-)
-(connector
 	(pt 512 8)
 	(pt 1096 8)
 )
@@ -1160,18 +1144,6 @@ applicable agreement for further details.
 (connector
 	(pt 1168 528)
 	(pt 1064 528)
-)
-(connector
-	(pt 560 56)
-	(pt 1040 56)
-)
-(connector
-	(pt 1040 56)
-	(pt 1040 656)
-)
-(connector
-	(pt 1168 656)
-	(pt 1040 656)
 )
 (connector
 	(pt 1168 264)
@@ -1332,10 +1304,6 @@ applicable agreement for further details.
 (connector
 	(pt 936 208)
 	(pt 920 208)
-)
-(connector
-	(pt 936 96)
-	(pt 936 208)
 )
 (connector
 	(pt 1016 144)
@@ -1546,10 +1514,6 @@ applicable agreement for further details.
 	(pt 1168 560)
 )
 (connector
-	(pt 1232 88)
-	(pt 1312 88)
-)
-(connector
 	(pt 1232 408)
 	(pt 1312 408)
 )
@@ -1640,6 +1604,42 @@ applicable agreement for further details.
 (connector
 	(pt 1168 688)
 	(pt 904 688)
+)
+(connector
+	(pt 936 88)
+	(pt 1168 88)
+)
+(connector
+	(pt 936 208)
+	(pt 936 88)
+)
+(connector
+	(pt 560 56)
+	(pt 1048 56)
+)
+(connector
+	(pt 1048 56)
+	(pt 1048 656)
+)
+(connector
+	(pt 1168 656)
+	(pt 1048 656)
+)
+(connector
+	(pt 472 168)
+	(pt 576 168)
+)
+(connector
+	(pt 576 168)
+	(pt 576 72)
+)
+(connector
+	(pt 1168 72)
+	(pt 576 72)
+)
+(connector
+	(pt 1232 80)
+	(pt 1312 80)
 )
 (junction (pt 344 104))
 (junction (pt 328 120))
