@@ -1796,3 +1796,4 @@ applicable agreement for further details.
 (junction (pt 360 656))
 (junction (pt -56 368))
 (junction (pt -56 392))
+(text "d" (rect 1520 608 1527 622)(font "Arial" (font_size 8)))
