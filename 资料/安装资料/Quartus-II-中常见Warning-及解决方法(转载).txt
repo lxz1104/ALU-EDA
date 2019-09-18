@@ -1,0 +1,203 @@
+支持原版！本人转载的 可以免费下载
+1.Found clock-sensitive change during active clock edge at time <time> on register "<name>"
+原因：vector source file中时钟敏感信号（如：数据，允许端，清零，同步加载等）在时钟的边缘同时变化。而时钟敏感信号是不能在时钟边沿变化的。其后果为导致结果不正确。
+措施：编辑vector source file
+
+2.Verilog HDL assignment warning at <location>: truncated value with size <number> to match size of target (<number>
+
+原因:在HDL设计中对目标的位数进行了设定,如:reg[4:0] a;而默认为32位,将位数裁定到合适的大小
+措施:如果结果正确,无须加以修正,如果不想看到这个警告,可以改变设定的位数
+
+
+3.All reachable assignments to data_out(10) assign '0', register removed by optimization
+原因:经过综合器优化后，输出端口已经不起作用了
+
+
+4.Following 9 pins have nothing, GND, or VCC driving datain port -- changes to this connectivity may change fitting results
+原因:第9脚，空或接地或接上了电源
+措施:有时候定义了输出端口，但输出端直接赋‘0’，便会被接地，赋‘1’接电源。如果你的设计中这些端口就是这样用的，那便可以不理会这些warning
+
+
+5.Found pins functioning as undefined clocks and/or memory enables
+原因:是你作为时钟的PIN没有约束信息。可以对相应的PIN做一下设定就行了。主要是指你的某些管脚在电路当中起到了时钟管脚的作用，比如flip-flop的clk管脚，而此管脚没有时钟约束，因此QuartusII把“clk”作为未定义的时钟。
+措施:如果clk不是时钟，可以加“not clock”的约束；如果是，可以在clock setting当中加入；在某些对时钟要求不很高的情况下，可以忽略此警告或在这里修改:Assignments>Timing analysis settings...>Individual clocks...>...
+
+
+6.Timing characteristics of device EPM570T144C5 are preliminary
+原因:因为MAXII 是比較新的元件在 QuartusII 中的時序并不是正式版的,要等 Service Pack
+措施:只影响 Quartus 的 Waveform
+
+
+7.Warning: Clock latency analysis for PLL offsets is supported for the current device family, but is not enabled
+措施:将setting中的timing Requirements&Option-->More Timing Setting-->setting-->Enable Clock Latency中的on改成OFF
+
+
+8.Found clock high time violation at 14.8 ns on register "|counter|lpm_counter:count1_rtl_0|dffs[11]"
+原因:违反了steup/hold时间，应该是后仿真，看看波形设置是否和时钟沿符合steup/hold时间
+措施:在中间加个寄存器可能可以解决问题
+
+
+9.warning: circuit may not operate.detected 46 non-operational paths clocked by clock clk44 with clock skew larger than data delay
+原因:时钟抖动大于数据延时,当时钟很快，而if等类的层次过多就会出现这种问题,但这个问题多是在器件的最高频率中才会出现
+措施：setting-->timing Requirements&Options-->Default required fmax 改小一些，如改到50MHZ
+
+
+10.Design contains <number> input pin(s) that do not drive logic
+原因:输入引脚没有驱动逻辑(驱动其他引脚）,所有的输入引脚需要有输入逻辑
+措施:如果这种情况是故意的,无须理会,如果非故意,输入逻辑驱动.
+
+
+11.Warning：Found clock high time violation at 8.9ns on node 'TEST3.CLK'
+原因：FF中输入的PLS的保持时间过短
+措施：在FF中设置较高的时钟频率
+
+
+12.Warning: Found 10 node(s) in clock paths which may be acting as ripple and/or gated clocks -- node(s) analyzed as buffer(s) resulting in clock skew
+原因:如果你用的 CPLD 只有一组全局时钟时，用全局时钟分频产生的另一个时钟在布线中当作信号处理，不能保证低的时钟歪斜(SKEW)。会造成在这个时钟上工作的时序电路不可靠，甚至每次布线产生的问题都不一样。
+措施:如果用有两组以上全局时钟的 FPGA 芯片，可以把第二个全局时钟作为另一个时钟用，可以解决这个问题。
+
+
+13.Critical Warning: Timing requirements were not met. See Report window for details.
+原因：时序要求未满足，
+措施：双击Compilation Report-->Time Analyzer-->红色部分（如clock setup:'clk'等）-->左键单击list path,查看fmax的SLACK REPORT再根据提示解决,有可能是程序的算法问题
+
+
+14.Can't achieve minimum setup and hold requirement <text> along <number> path(s). See Report window for details.
+原因：时序分析发现一定数量的路径违背了最小的建立和保持时间，与时钟歪斜有关,一般是由于多时钟引起的
+措施：利用Compilation Report-->Time Analyzer-->红色部分（如clock hold:'clk'等），在slack中观察是hold time为负值还是setup time 为负值，然后在：Assignment-->Assignment Editor-->To中增加时钟名(from node finder)，Assignment Name中增加
+和多时钟有关的Multicycle 和Multicycle Hold选项，如hold time为负，可使Multicycle hold的值>multicycle,如设为2和1。
+
+
+15: Can't analyze file -- file E://quartusii/*/*.v is missing
+原因：试图编译一个不存在的文件，该文件可能被改名或者删除了
+措施：不管他，没什么影响
+
+
+16.Warning: Can't find signal in vector source file for input pin |whole|clk10m
+原因：因为你的波形仿真文件（ vector source file ）中并没有把所有的输入信号(input pin)加进去，对于每一个输入都需要有激励源的
+
+
+17.Error: Can't name logic function scfifo0 of instance "inst" -- function has same name as current design file
+原因：模块的名字和project的名字重名了
+措施：把两个名字之一改一下，一般改模块的名字
+
+
+18.Warning: Using design file lpm_fifo0.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project Info: Found entity 1: lpm_fifo0
+原因：模块不是在本项目生成的，而是直接copy了别的项目的原理图和源程序而生成的，而不是用QUARTUS将文件添加进本项目
+措施：无须理会，不影响使用
+
+
+19.Timing characteristics of device <name> are preliminary
+原因：目前版本的QuartusII只对该器件提供初步的时序特征分析
+措施：如果坚持用目前的器件，无须理会该警告。关于进一步的时序特征分析会在后续版本的Quartus得到完善。
+
+
+20.Timing Analysis does not support the analysis of latches as synchronous elements for the currently selected device family
+原因：用analyze_latches_as_synchronous_elements setting可以让Quaruts II来分析同步锁存，但目前的器件不支持这个特性
+措施：无须理会。时序分析可能将锁存器分析成回路。但并不一定分析正确。其后果可能会导致显示提醒用户：改变设计来消除锁      存器
+
+
+21.Warning:Found xx output pins without output pin load capacitance assignment（网友：gucheng82提供）
+原因：没有给输出管教指定负载电容
+措施：该功能用于估算TCO和功耗，可以不理会，也可以在Assignment Editor中为相应的输出管脚指定负载电容，以消除警告
+
+
+22.Warning: Found 6 node(s) in clock paths which may be acting as ripple and/or gated clocks -- node(s) analyzed as buffer(s) resulting in clock skew
+
+原因：使用了行波时钟或门控时钟，把触发器的输出当时钟用就会报行波时钟，将组合逻辑的输出当时钟用就会报门控时钟
+措施：不要把触发器的输出当时钟，不要将组合逻辑的输出当时钟，如果本身如此设计，则无须理会该警告
+
+
+23.Warning (10268): Verilog HDL information at lcd7106.v(63): Always Construct contains both blocking and non-blocking assignments
+原因： 一个always模块中同时有阻塞和非阻塞的赋值
+
+
+1.Found clock-sensitive change during active clock edge at time <time> on register "<name>"
+原因：vector source file中时钟敏感信号（如：数据，允许端，清零，同步加载等）在时钟的边缘同时变化。而时钟敏感信号是 
+不能在时钟边沿变化的。其后果为导致结果不正确。
+措施：编辑vector source file
+
+2.Verilog HDL assignment warning at <location>: truncated value with size <number> to match size of target (<number>
+原因:在HDL设计中对目标的位数进行了设定,如:reg[4:0] a;而默认为32位,将位数裁定到合适的大小
+措施:如果结果正确,无须加以修正,如果不想看到这个警告,可以改变设定的位数
+
+3.All reachable assignments to data_out(10) assign '0', register removed by optimization
+原因:经过综合器优化后，输出端口已经不起作用了
+
+4.Following 9 pins have nothing, GND, or VCC driving datain port -- changes to this connectivity may change fitting results
+原因:第9脚，空或接地或接上了电源
+措施:有时候定义了输出端口，但输出端直接赋‘0’，便会被接地，赋‘1’接电源。如果你的设计中这些端口就是这样用的，那便可以不理会这些warning
+
+5.Found pins functioning as undefined clocks and/or memory enables
+原因:是你作为时钟的PIN没有约束信息。可以对相应的PIN做一下设定就行了。主要是指你的某些管脚在电路当中起到了时钟管脚的 
+         作用，比如flip-flop的clk管脚，而此管脚没有时钟约束，因此QuartusII把“clk”作为未定义的时钟。
+措施:如果clk不是时钟，可以加“not clock”的约束；如果是，可以在clock setting当中加入；在某些对时钟要求不很高的情况下，可以忽略此警告或在这里修改:Assignments>Timing analysis settings...>Individual clocks...>... 
+注意在Applies to node中只用选择时钟引脚一项即可，required fmax一般比所要求频率高5%即可，无须太紧或太松。
+
+6.Timing characteristics of device EPM570T144C5 are preliminary
+原因:因为MAXII 是比较新的元件在 QuartusII 中的时序并不是正式版的,要等 Service Pack
+措施:只影响 Quartus 的 Waveform
+
+7.Warning: Clock latency analysis for PLL offsets is supported for the current device family, but is not enabled
+措施:将setting中的timing Requirements&Option-->More Timing Setting-->setting-->Enable Clock Latency中的on改成OFF
+
+
+8.Found clock high time violation at 14.8 ns on register "|counter|lpm_counter:count1_rtl_0|dffs[11]"
+原因:违反了steup/hold时间，应该是后仿真，看看波形设置是否和时钟沿符合steup/hold时间
+措施:在中间加个寄存器可能可以解决问题
+
+9.warning: circuit may not operate.detected 46 non-operational paths clocked by clock clk44 with clock skew larger than data delay
+原因:时钟抖动大于数据延时,当时钟很快，而if等类的层次过多就会出现这种问题,但这个问题多是在器件的最高频率中才会出现
+措施：setting-->timing Requirements&Options-->Default required fmax 改小一些，如改到50MHZ
+
+10.Design contains <number> input pin(s) that do not drive logic
+原因:输入引脚没有驱动逻辑(驱动其他引脚）,所有的输入引脚需要有输入逻辑
+措施:如果这种情况是故意的,无须理会,如果非故意,输入逻辑驱动.
+
+11.Warning：Found clock high time violation at 8.9ns on node 'TEST3.CLK'
+原因：FF中输入的PLS的保持时间过短
+措施：在FF中设置较高的时钟频率
+
+12.Warning: Found 10 node(s) in clock paths which may be acting as ripple and/or gated clocks -- node(s) analyzed as buffer(s) resulting in clock skew
+原因:如果你用的 CPLD 只有一组全局时钟时，用全局时钟分频产生的另一个时钟在布线中当作信号处理，不能保证低的时钟歪斜(SKEW)。会造成在这个时钟上工作的时序电路不可靠，甚至每次布线产生的问题都不一样。
+措施:如果用有两组以上全局时钟的 FPGA 芯片，可以把第二个全局时钟作为另一个时钟用，可以解决这个问题。
+
+13.Critical Warning: Timing requirements were not met. See Report window for details.
+原因：时序要求未满足，
+措施：双击Compilation Report-->Time Analyzer-->红色部分（如clock setup:'clk'等）-->左键单击list path,查看fmax的SLACK REPORT再根据提示解决,有可能是程序的算法问题或fmax设置问题
+
+14.Warning: Can't find signal in vector source file for input pin |whole|clk10m
+原因：这个时因为你的波形仿真文件（ vector source file ）中并没有把所有的输入信号(input pin)加进去， 对于每一个输入都需要有激励源的
+
+15.Can't achieve minimum setup and hold requirement <text> along <number> path(s). See Report window for details.
+原因：时序分析发现一定数量的路径违背了最小的建立和保持时间，与时钟歪斜有关,一般是由于多时钟引起的
+措施：利用Compilation Report-->Time Analyzer-->红色部分（如clock hold:'clk'等），在slack中观察是hold time为负值还是setup time 为负值，然后在：Assignment-->Assignment Editor-->To中增加时钟名(from node finder)，Assignment Name中增加和多时钟有关的Multicycle 和Multicycle Hold选项，如hold time为负，可使Multicycle hold的值>multicycle,如设为2和1。
+
+16: Can't analyze file -- file E://quartusii/*/*.v is missing
+原因：试图编译一个不存在的文件，该文件可能被改名或者删除了
+措施：不管他，没什么影响
+
+17.Warning: Can't find signal in vector source file for input pin |whole|clk10m
+原因：因为你的波形仿真文件（ vector source file ）中并没有把所有的输入信号(input pin)加进去， 对于每一个输入都需要有激励源的
+
+18.Error: Can't name logic function scfifo0 of instance "inst" -- function has same name as current design file
+原因：模块的名字和project的名字重名了
+措施：把两个名字之一改一下，一般改模块的名字
+
+19.Warning: Using design file lpm_fifo0.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project Info: Found entity 1: lpm_fifo0
+原因：模块不是在本项目生成的，而是直接copy了别的项目的原理图和源程序而生成的，而不是用QUARTUS将文件添加进本项目
+措施：无须理会，不影响使用
+
+20.Timing characteristics of device <name> are preliminary
+原因：目前版本的QuartusII只对该器件提供初步的时序特征分析
+措施：如果坚持用目前的器件，无须理会该警告。关于进一步的时序特征分析会在后续版本的Quartus得到完善。
+
+21.Timing Analysis does not support the analysis of latches as synchronous elements for the currently selected device family
+原因：用analyze_latches_as_synchronous_elements setting可以让Quaruts II来分析同步锁存，但目前的器件不支持这个特性
+措施：无须理会。时序分析可能将锁存器分析成回路。但并不一定分析正确。其后果可能会导致显示提醒用户：改变设计来消除锁存器,但实际其实无关紧要
+
+22.Warning:Found xx output pins without output pin load capacitance assignment
+原因：没有给输出管教指定负载电容
+解决方法：该功能用于估算TCO和功耗，可以不理会，也可以在Assignment Editor中为相应的输出管脚指定负载电容，以消除警告
+ 
+

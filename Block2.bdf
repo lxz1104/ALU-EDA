@@ -102,7 +102,7 @@ applicable agreement for further details.
 )
 (pin
 	(input)
-	(rect 304 576 472 592)
+	(rect 304 584 472 600)
 	(text "INPUT" (rect 133 0 161 10)(font "Arial" (font_size 6)))
 	(text "C2" (rect 5 0 19 12)(font "Arial" ))
 	(pt 168 8)
@@ -437,7 +437,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 752 472 816 520)
+	(rect 776 472 840 520)
 	(text "XOR" (rect 1 0 21 10)(font "Arial" (font_size 6)))
 	(text "inst6" (rect 3 37 26 49)(font "Arial" ))
 	(port
@@ -687,10 +687,6 @@ applicable agreement for further details.
 	(pt 496 368)
 )
 (connector
-	(pt 472 584)
-	(pt 520 584)
-)
-(connector
 	(pt 520 384)
 	(pt 536 384)
 )
@@ -783,48 +779,8 @@ applicable agreement for further details.
 	(pt 912 424)
 )
 (connector
-	(pt 816 496)
-	(pt 912 496)
-)
-(connector
 	(pt 736 272)
 	(pt 752 272)
-)
-(connector
-	(pt 752 272)
-	(pt 752 424)
-)
-(connector
-	(pt 752 424)
-	(pt 704 424)
-)
-(connector
-	(pt 704 424)
-	(pt 704 488)
-)
-(connector
-	(pt 704 488)
-	(pt 752 488)
-)
-(connector
-	(pt 520 592)
-	(pt 704 592)
-)
-(connector
-	(pt 520 528)
-	(pt 520 584)
-)
-(connector
-	(pt 520 584)
-	(pt 520 592)
-)
-(connector
-	(pt 704 592)
-	(pt 704 504)
-)
-(connector
-	(pt 704 504)
-	(pt 752 504)
 )
 (connector
 	(pt 848 648)
@@ -890,13 +846,45 @@ applicable agreement for further details.
 	(pt 976 504)
 	(pt 1024 504)
 )
+(connector
+	(pt 520 528)
+	(pt 520 592)
+)
+(connector
+	(pt 912 496)
+	(pt 840 496)
+)
+(connector
+	(pt 776 488)
+	(pt 752 488)
+)
+(connector
+	(pt 752 272)
+	(pt 752 488)
+)
+(connector
+	(pt 752 592)
+	(pt 752 504)
+)
+(connector
+	(pt 776 504)
+	(pt 752 504)
+)
+(connector
+	(pt 472 592)
+	(pt 520 592)
+)
+(connector
+	(pt 520 592)
+	(pt 752 592)
+)
 (junction (pt 496 512))
 (junction (pt 496 368))
 (junction (pt 496 440))
 (junction (pt 520 456))
 (junction (pt 520 528))
-(junction (pt 520 584))
 (junction (pt 864 296))
 (junction (pt 864 368))
 (junction (pt 864 440))
 (junction (pt 864 512))
+(junction (pt 520 592))

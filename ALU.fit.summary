@@ -1,4 +1,4 @@
-Fitter Status : Successful - Mon Sep 16 19:08:45 2019
+Fitter Status : Successful - Wed Sep 18 10:31:12 2019
 Quartus II 64-Bit Version : 9.1 Build 350 03/24/2010 SP 2 SJ Full Version
 Revision Name : ALU
 Top-level Entity Name : ALU
@@ -9,7 +9,7 @@ Total logic elements : 31 / 22,320 ( < 1 % )
     Total combinational functions : 31 / 22,320 ( < 1 % )
     Dedicated logic registers : 0 / 22,320 ( 0 % )
 Total registers : 0
-Total pins : 16 / 154 ( 10 % )
+Total pins : 20 / 154 ( 13 % )
 Total virtual pins : 0
 Total memory bits : 0 / 608,256 ( 0 % )
 Embedded Multiplier 9-bit elements : 0 / 132 ( 0 % )
